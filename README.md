@@ -17,7 +17,7 @@ Technology Stack
 * Frontend: `JavaScript` , `HTML` , `CSS` , `Thymeleaf` , `Summernote`
 * Frameworks: `Bootstrap` , `Spring Boot3` , `Spring MVC` , `Spring Data JPA` , `Spring Security`
 * Backend: `Java`
-* Cloud&Deployment: `AWS S3`, `AWS RDS` , `AWS Elastic Beanstalk` , `AWS Systems Manager Parameter Store`
+* Cloud&Deployment: `AWS S3` , `AWS RDS` , `AWS Elastic Beanstalk` , `AWS Systems Manager Parameter Store`
 * Database: `MySQL` , `Hibernate ORM`
 * Tooling: `Maven`, `Git/GitHub` , `IntelliJ IDEA`
 

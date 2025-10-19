@@ -1,4 +1,4 @@
-📑 Personal Portfolio Website
+👔 Jobportal Website
 ===
 
 [Go to Website](http://jackycoder.us-east-2.elasticbeanstalk.com/)
@@ -6,13 +6,18 @@
 
 Introduce
 ---
-This is a static website designed to showcase my resume and portfolio, with a strong focus on UI design. It leverages Flexbox to achieve responsive web design (RWD), incorporates Bootstrap progress bars for visual enhancement, and features CSS-based animated translucent bubbles in the background to add a dynamic and layered visual effect.
+This is a job platform with two user roles: recruiters and job seekers.Recruiters can post job openings to find the right candidates, while job seekers can browse listings, save their favorite positions, and submit applications. Both sides can create and update their personal profiles.
+
+To access these interactive features, users must be signed in.
+Visitors who aren’t logged in can still explore job listings, but they won’t be able to save or apply for positions.
 
 
 Technology Stack
 ---
-* Frontend:`JavaScript`, `HTML`, `CSS`
-* Frameworks: `Bootstrap`
+* Frontend:`JavaScript`, `HTML`, `CSS` , `Thymeleaf` , `Summernote`
+* Frameworks: `Bootstrap`, `SpringBoot3` , `SpringMVC` , `Spring Data JPA`, `Spring Security`
+* Backend: `Java`
+* Cloud&Deployment: `AWS S3`, `AWS RDS` , `AWS Elastic Beanstalk`, `AWS Systems Manager Parameter Store`
 
 
 User Interface

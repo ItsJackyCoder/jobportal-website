@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <title>Login</title>
+  </head>
+
+  <body>
+
+    <div class="row" style="margin-right:0">
+      <div class="col-md-5">
+        <div class="coffee_mug_background">
+          <div class="logo_left mt-4 ms-4 align-items-center justify-content-start gap-2">
+            <img th:src="@{/assets/job-icon.png}"
+                 alt="main-logo"
+                 class="main-logo">
+            <h2 class="logo main-logo-text">JackyCoder<span class="logo_com">World</span></h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="top-margin">
+          <div class="myForm" style="align-items:center">
+            <form th:action="@{/login}" method="post">
+              <h1 class="text-center heading_font fw-bold mb-5">Login</h1>
+
+              <!-- Error message display-->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div th:if="${loginError}"
+                         class="alert alert-danger d-flex align-items-center justify-content-center error-message"
+                         role="alert">
+                      <p class="mb-0" th:text="${loginError}"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End error message display -->
+
+              <div class="form-group">
+                <input
+                        placeholder="Email"
+                        name="username"
+                        type="email"
+                        class="form-control"
+                        required
+                />
+              </div>
+              <div class="form-group mt-3">
+                <input
+                        placeholder="Password"
+                        name="password"
+                        type="password"
+                        class="form-control"
+                        required
+                />
+              </div>
+
+              <div class="form-group mt-5">
+                <button type="submit" class="myBtn">Log in</button>
+              </div>
+
+              <p class="text-center mt-1">
+                Are you a new User?
+                <a class="color-text" th:href="@{/register}">Register Now</a
+                >
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const alertBox = document.querySelector('.error-message');
+          if (alertBox) {
+              //淡入
+              setTimeout(() => alertBox.classList.add('show'), 100);
+
+              //3秒後淡出
+              setTimeout(() => {
+                  alertBox.classList.remove('show');
+                  setTimeout(() => alertBox.remove(), 500);
+              }, 2000);
+          }
+      });
+  </script>
+
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome To JackyCoder World!</title>
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+  </head>
+
+  <body class="background">
+    <nav class="main_div">
+      <div class="logo_left">
+        <img th:src="@{/assets/job-icon.png}"
+             alt="main-logo"
+             class="main-logo">
+        <label class="logo" style="margin-left: 5px">JackyCoder</label>
+        <label class="logo_com">World</label>
+      </div>
+
+      <div class="logo_right">
+        <label class="Candidate_login_btn">
+          <a th:href="@{/login}">
+            Login
+          </a>
+        </label>
+
+        <label class="Recruiter_login_btn">
+          <a th:href="@{/register}">
+            Register
+          </a>
+        </label>
+      </div>
+    </nav>
+
+    <form th:action="@{/global-search/}">
+      <div class="searchBox">
+        <div class="inner">
+          <input type="text" placeholder="Search for a job" name="job"/>
+          <input type="text" placeholder="Enter a location" name="location"/>
+          <button type="submit"><i class="fa-solid fa-search"></i></button>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

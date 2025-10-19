@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+
+  </head>
+
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark">
+      <label class="mt-2 ms-4 font-weight-bold h5">
+        <img th:src="@{/assets/job-icon.png}"
+             alt="main-logo"
+             class="main-logo">
+        <a th:href="@{/dashboard/}">JackyCoder</a>
+        <span class="logo_com font-weight-bold h5 text-white">World</span>
+      </label>
+      <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarToggler"
+              aria-controls="navbarToggler"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav m-auto mt-2 mt-lg-0">
+          <li class="nav-item ">
+            <a sec:authorize="hasAuthority('Recruiter')" class="nav-link" th:href="@{/dashboard/add}"
+            ><i class="fa-solid fa-file-circle-plus"></i>Post New Job</a
+            >
+          </li>
+          <li class="nav-item active">
+            <a sec:authorize="hasAuthority('Recruiter')" class="nav-link" th:href="@{/dashboard/}"
+            > <i class="fa-solid fa-eye"></i>View Your Jobs</a
+            >
+          </li>
+          <li class="nav-item ">
+            <a sec:authorize="hasAuthority('Recruiter')" class="nav-link" th:href="@{/recruiter-profile/}"
+            > <i class="fa-solid fa-pencil"></i>Edit Account</a
+            >
+          </li>
+
+        </ul>
+
+        <!-- displays the user's profile image -->
+        <img
+                class="rounded-circle me-3"
+                height="50px"
+                width="50px"
+                th:if="${user.photosImagePath!=null}"
+                th:src="@{${user.photosImagePath}}"
+        />
+
+        <!-- 這裡的model都是來自JobPostActivityController.java -->
+
+        <!-- display logged-in user's first name and last name -->
+        <label th:if="${user.firstName != null && user.lastName != null}"
+               th:text="${user.firstName+' '+user.lastName}"
+               class="nav-item nav-link px-2 me-3">
+        </label>
+
+        <!-- display email -->
+        <label th:unless="${user.firstName != null && user.lastName != null}" th:text="${username}"
+               class="nav-item nav-link px-2 me-3"></label>
+
+        <button class="myBtn-light me-5" onclick="window.location.href='/logout'">Logout</button>
+      </div>
+    </header>
+
+    <section class="section">
+      <!-- 左邊藍色框框 -->
+      <div class="sidenav px-5">
+        <div sec:authorize="hasAuthority('Recruiter')">
+
+          <div class="filter-recruiter d-flex">
+            <label class="text-uppercase color-dull font-weight-bold">Filter Results</label>
+            <button class="d-flex justify-content-center align-content-center ms-auto" type="submit"
+                    form="recruiterSearchForm">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+          <hr/>
+          <form id="recruiterSearchForm" th:action="@{/dashboard/jobApplicantsList/{id}(id=${jobId})}">
+
+            <div class="row">
+              <div class="col-lg-12 mb-3">
+                <label>Work Authorization</label>
+                <div class="form-check">
+                  <input
+                          class="form-check-input workAuth"
+                          type="checkbox"
+                          th:checked="${dTwo}"
+                          id="dTwo"
+                          name="dTwo"
+                          th:value="D2"
+                  />
+                  <label class="form-check-label" for="dTwo">
+                    D2
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                          class="form-check-input workAuth"
+                          type="checkbox"
+                          id="dTen"
+                          th:checked="${dTen}"
+                          name="dTen"
+                          th:value="D10"
+                  />
+                  <label class="form-check-label" for="dTen">
+                    D10
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                          class="form-check-input workAuth"
+                          type="checkbox"
+                          id="fVisa"
+                          th:value="F-Visa"
+                          name="fVisa"
+                          th:checked="${fVisa}"
+                  />
+                  <label class="form-check-label" for="fVisa">
+                    F-Visa
+                  </label>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <label>Language</label>
+                <div class="form-check">
+                  <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="korean"
+                          th:value="Korean"
+                          name="korean"
+                          th:checked="${korean}"
+                  />
+                  <label class="form-check-label" for="korean">
+                    Korean
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="chinese"
+                          th:value="Chinese"
+                          name="chinese"
+                          th:checked="${chinese}"
+                  />
+                  <label class="form-check-label" for="chinese">
+                    Chinese
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="english"
+                          th:value="English"
+                          name="english"
+                          th:checked="${english}"
+                  />
+                  <label class="form-check-label" for="english">
+                    English
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="japanese"
+                          th:value="Japanese"
+                          name="japanese"
+                          th:checked="${japanese}"
+                  />
+                  <label class="form-check-label" for="japanese">
+                    Japanese
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="spanish"
+                          th:value="Spanish"
+                          name="spanish"
+                          th:checked="${spanish}"
+                  />
+                  <label class="form-check-label" for="spanish">
+                    Spanish
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="german"
+                          th:value="German"
+                          name="german"
+                          th:checked="${german}"
+                  />
+                  <label class="form-check-label" for="german">
+                    German
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="french"
+                          th:value="French"
+                          name="french"
+                          th:checked="${french}"
+                  />
+                  <label class="form-check-label" for="french">
+                    French
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="vietnamese"
+                          th:value="Vietnamese"
+                          name="vietnamese"
+                          th:checked="${vietnamese}"
+                  />
+                  <label class="form-check-label" for="vietnamese">
+                    Vietnamese
+                  </label>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <article>
+        <div class="box" sec:authorize="hasAuthority('Recruiter')">
+          <h1 class="primary-title">Job Applicants List</h1>
+        </div>
+        <div class="box mt-3" th:if="${jobSeekerApplyList != null and !#lists.isEmpty(jobSeekerApplyList)}">
+          <th:block th:each="jobSeekerApply, iterStat:${jobSeekerApplyList}">
+            <div
+                    th:onclick="|window.location.href='@{/job-seeker-profile/{id}(id=${jobSeekerApply.userId.userAccountId})}'|"
+                    class="job-row"
+            >
+              <div class="row">
+                <div class="col-md-1 d-flex align-items-center justify-content-center">
+                  <label th:text="${iterStat.count}"></label>
+                </div>
+
+                <div class="col-md-3 d-flex align-items-center justify-content-center" style="height: 50px">
+                  <img th:src="@{${jobSeekerApply.userId.photosImagePath}}"
+                       alt="Profile Photo"
+                       width="30%"
+                       height="100%"/>
+                </div>
+
+                <div class="col-md-3 d-flex align-items-center justify-content-center">
+                  <label class="job-title">
+                    [[${jobSeekerApply.userId.firstName + ' ' + jobSeekerApply.userId.lastName}]]
+                  </label>
+                </div>
+
+                <div class="col-md-3 d-flex align-items-center justify-content-center">
+                  <label th:text="${jobSeekerApply.userId.workAuthorization}"></label>
+                </div>
+
+                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                  <label th:text="${jobSeekerApply.userId.country}"></label>
+                </div>
+              </div>
+            </div>
+          </th:block>
+        </div>
+        <div class="box mt-3"
+             th:if="${jobSeekerApplyList == null or #lists.isEmpty(jobSeekerApplyList)}"
+             style="font-size: 22px">
+          No Results
+        </div>
+      </article>
+    </section>
+
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+    <script>
+        //限制同一組checkbox只能選一個
+        document.querySelectorAll('.workAuth').forEach(cb => {
+            cb.addEventListener('change', function () {
+                if (this.checked) {
+                    document.querySelectorAll('.workAuth').forEach(other => {
+                        if (other !== this) other.checked = false;
+                    });
+                }
+            });
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
+    <title>Profile Setup</title>
+  </head>
+
+  <body>
+    <div class="row" style="margin-right:0; ">
+      <div class="col-4 coffee_mug_background">
+        <div class="logo_left mt-4 ms-4 d-flex align-items-center justify-content-start gap-2">
+          <img th:src="@{/assets/job-icon.png}"
+               alt="main-logo"
+               class="main-logo">
+          <h2 class="logo text-white main-logo-text">JackyCoder<span class="logo_com">World</span></h2>
+        </div>
+      </div>
+
+      <div class="col-8">
+        <div class="myForm">
+
+          <!-- enctype="multipart/form-data": ????????MultipartFile????????-->
+          <form
+                  th:action="@{/job-seeker-profile/addNew}"
+                  th:object="${profile}"
+                  method="post"
+                  enctype="multipart/form-data">
+
+            <div class="row">
+              <div class="col-md-12 d-flex justify-content-center">
+                <div class="d-flex justify-content-center pt-3" sec:authorize="hasAuthority('Job Seeker')">
+                  <h1 class="heading_font fw-bold">Set up your Profile</h1>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-center mt-4 mb-3">
+                <div style="border: 5px solid #fff; border-radius: 50%; width: 150px; height: 150px;
+                     box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                  <img id="profilePreview"
+                       th:src="@{${profile.photosImagePath}}"
+                       width="100%"
+                       height="100%"
+                       style="object-fit: cover; border-radius: 50%;"/>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <label class="mb-2 heading_font font_sub_heading_color">Name</label>
+                <div class="row">
+                  <div class="col-md-6">
+                    <input
+
+                            id="user_account_id"
+                            th:field="*{userAccountId}"
+                            name="userAccountId"
+                            type="text"
+                            hidden
+                    />
+
+                    <input
+                            placeholder="First Name"
+                            id="firstName"
+                            th:field="*{firstName}"
+                            name="firstName"
+                            type="text"
+                            class="form-control"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                            placeholder="Last Name"
+                            id="lastName"
+                            name="lastName"
+                            th:field="*{lastName}"
+                            type="text"
+                            class="form-control"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <input
+                            placeholder="City"
+                            name="city"
+                            th:field="*{city}"
+                            type="text"
+                            class="form-control"
+                    />
+                  </div>
+                  <div class="col-md-4 px-1">
+                    <input
+                            placeholder="State"
+                            name="state"
+                            type="text"
+                            th:field="*{state}"
+                            class="form-control"
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                            placeholder="Country"
+                            name="country"
+                            th:field="*{country}"
+                            type="text"
+                            class="form-control"
+                    />
+                  </div>
+                </div>
+                <label class="mt-4 mb-2 heading_font font_sub_heading_color">Work Classification</label>
+                <div class="row">
+                  <div class="col-md-6">
+                    <select
+                            required
+                            class="form-control"
+                            name="workAuthorization"
+                            th:field="*{workAuthorization}"
+                    >
+                      <option value="" selected>Work Authorization</option>
+                      <option value="D2">D2</option>
+                      <option value="D10">D10</option>
+                      <option value="F-Visa">F-Visa</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <select
+                            required
+                            class="form-control"
+                            name="employmentType"
+                            th:field="*{employmentType}"
+                    >
+                      <option value="" selected>Seeking Employment</option>
+                      <option value="Full-Time">Full-time</option>
+                      <option value="Part-Time">Part-time</option>
+                      <option value="Freelance">Freelance</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- languages -->
+                <label class="mt-4 mb-2 heading_font font_sub_heading_color">Languages</label>
+                <div class="parent-language">
+                  <div class="language-repeat" th:each="languages, iterStat : *{languages}">
+                    <div class="row">
+                      <div class=""
+                           th:classappend="${#authorization.expression('hasAuthority(''Job Seeker'')')}
+                           ? 'col-md-5' : 'col-md-6'">
+                        <input
+                                type="text"
+                                th:field="*{languages[__${iterStat.index}__].id}"
+                                hidden
+                        />
+
+                        <select
+                                class="form-control"
+                                th:field="*{languages[__${iterStat.index}__].name}"
+                        >
+                          <option value="" selected>Language</option>
+                          <option value="Korean">Korean</option>
+                          <option value="Chinese">Chinese</option>
+                          <option value="English">English</option>
+                          <option value="Japanese">Japanese</option>
+                          <option value="Spanish">Spanish</option>
+                          <option value="German">German</option>
+                          <option value="French">French</option>
+                          <option value="Vietnamese">Vietnamese</option>
+                        </select>
+                      </div>
+
+                      <div class=""
+                           th:classappend="${#authorization.expression('hasAuthority(''Job Seeker'')')}
+                           ? 'col-md-5' : 'col-md-6'">
+                        <select
+                                class="form-control"
+                                th:field="*{languages[__${iterStat.index}__].experienceLevel}">
+                          <option value="" selected>Experience Level</option>
+                          <option value="Beginner">Beginner</option>
+                          <option value="Intermediate">Intermediate</option>
+                          <option value="Advance">Advance</option>
+                        </select>
+                      </div>
+
+                      <div th:if="${iterStat.index > 0}"
+                           sec:authorize="hasAuthority('Job Seeker')"
+                           class="col-md-2 align-content-center justify-content-center">
+                        <div class="col-md-1">
+                          <button type="button" class="btn btn-danger btn-sm remove-language">X</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row" sec:authorize="hasAuthority('Job Seeker')">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="text-left mt-2">
+
+                      <!-- ??293? -->
+                      <button
+                              type="button"
+                              class="btn btn-outline-secondary"
+                              id="addLanguage"
+                      >
+                        Add Language
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- skills -->
+                <label class="mt-4 mb-2 heading_font font_sub_heading_color">Skills</label>
+                <div class='parent-skill'>
+                  <div class='skill-repeat' th:each="skills, iterStat : *{skills}">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <input
+                                type="text"
+                                th:field="*{skills[__${iterStat.index}__].id}"
+                                hidden
+                        />
+                        <input
+                                placeholder="Skill Name"
+                                type="text"
+                                class="form-control"
+                                th:field="*{skills[__${iterStat.index}__].name}"
+                        />
+                      </div>
+                      <div class="px-1"
+                           th:classappend="${#authorization.expression('hasAuthority(''Job Seeker'')')}
+                           ? 'col-md-3' : 'col-md-4'">
+                        <input
+                                placeholder="Years of Experience"
+                                type="text"
+                                class="form-control"
+                                th:field="*{skills[__${iterStat.index}__].yearsOfExperience}"
+                        />
+                      </div>
+                      <div class=""
+                           th:classappend="${#authorization.expression('hasAuthority(''Job Seeker'')')}
+                           ? 'col-md-3' : 'col-md-4'">
+                        <select
+                                class="form-control"
+                                th:field="*{skills[__${iterStat.index}__].experienceLevel}"
+                        >
+                          <option value="" selected>Experience Level</option>
+                          <option value="Beginner">Beginner</option>
+                          <option value="Intermediate">Intermediate</option>
+                          <option value="Advance">Advance</option>
+                        </select>
+                      </div>
+
+                      <!-- remove button -->
+                      <div th:if="${iterStat.index > 0}"
+                           sec:authorize="hasAuthority('Job Seeker')"
+                           class="col-md-2 align-content-center justify-content-center">
+                        <div class="col-md-1">
+                          <button type="button" class="btn btn-danger btn-sm remove-skill">X</button>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row" sec:authorize="hasAuthority('Job Seeker')">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="text-left mt-2">
+
+                      <!-- ??293? -->
+                      <button
+                              type="button"
+                              class="btn btn-outline-secondary"
+                              id="addSkill"
+                      >
+                        Add Skill
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mt-2">
+                  <div class="col-md-5 me-5" sec:authorize="hasAuthority('Job Seeker')">
+                    <label class="mt-4 mb-2 heading_font font_sub_heading_color">Profile Photo(up to 1MB)</label>
+
+                    <!-- Profile Photo -->
+                    <input
+                            type="file"
+                            id="profileImageInput"
+                            name="image"
+                            class="form-control"
+                            accept="image/png, image/jpeg"
+                    />
+
+                    <!-- ?????? -->
+                    <div th:if="*{profilePhoto}">
+                      <a th:href="@{*{photosImagePath}}"
+                         target="_blank"
+                         class="text-decoration-none">
+                        <span id="profilePhotoName" th:text="*{profilePhoto}"></span>
+                      </a>
+                    </div>
+
+                    <!-- Hidden ??????? -->
+                    <input type="text" name="profilePhoto" th:field="*{profilePhoto}" class="form-control"
+                           hidden/>
+
+                  </div>
+                  <div class="col-md-5 me-5">
+                    <label class="mt-4 mb-2 heading_font font_sub_heading_color">Resume (PDF only, up to 3MB)</label>
+
+                    <!-- ???? -->
+                    <input
+                            sec:authorize="hasAuthority('Job Seeker')"
+                            id="resumeInput"
+                            type="file"
+                            name="pdf"
+                            class="form-control"
+                            accept="application/pdf"
+                    />
+
+                    <!-- ?????? -->
+                    <div th:if="*{resume}">
+                      <a th:href="@{*{resumePath}}"
+                         target="_blank"
+                         class="text-decoration-none">
+                        <span id="resumeName" sec:authorize="hasAuthority('Job Seeker')" th:text="*{resume}"></span>
+                      </a>
+                    </div>
+
+                    <!-- Hidden ??????? -->
+                    <input type="text" name="resume" th:field="*{resume}" class="form-control" hidden/>
+
+
+                    <a sec:authorize="hasAuthority('Recruiter')"
+                       th:if="${profile.resume != null and !#strings.isEmpty(profile.resume)}"
+                       th:href="@{|/recruiter-profile/downloadResume?fileName=${profile.resume}&userID=${profile.userAccountId}|}">
+                      Download Resume
+                    </a>
+
+                    <p sec:authorize="hasAuthority('Recruiter')"
+                       th:unless="${profile.resume != null and !#strings.isEmpty(profile.resume)}"
+                       class="text-danger">No resume uploaded yet!</p>
+                  </div>
+                </div>
+
+                <div class="row mt-3 col d-flex justify-content-center"
+                     sec:authorize="hasAuthority('Job Seeker')">
+                  <div class="text-right">
+                    <button
+                            type="submit"
+                            id="submit2"
+                            name="submit"
+                            class="btn btn-primary base_button px-4 py-2"
+                    >
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- 上傳的檔案超過大小的警示窗 -->
+    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header text-white custom-modal-header">
+            <h5 class="modal-title" id="modalLabel">Upload Error</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div id="modal-body" class="modal-body custom-modal-body">
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+  <script>
+      const profileInput = document.getElementById("profileImageInput");
+
+      if (profileInput) {
+          profileInput.addEventListener("change", function (event) {
+              const file = event.target.files[0];
+
+              if (file) {
+                  const reader = new FileReader();
+                  reader.onload = function (e) {
+                      document.getElementById("profilePreview").src = e.target.result;
+                  };
+                  reader.readAsDataURL(file);
+
+                  const profileName = document.getElementById("profilePhotoName");
+
+                  if (profileName) profileName.innerText = file.name;
+              }
+          })
+      }
+
+      const resumeInput = document.getElementById("resumeInput");
+
+      if (resumeInput) {
+          resumeInput.addEventListener("change", function (event) {
+              const file = event.target.files[0];
+              if (file) {
+                  const resumeName = document.getElementById("resumeName");
+
+                  if (resumeName) resumeName.innerText = file.name;
+              }
+          })
+      }
+  </script>
+
+  <script sec:authorize="hasAuthority('Recruiter')">
+      console.log("Disable inputs");
+      $("input").prop("disabled", true);
+      $("select").prop("disabled", true);
+      $("button").prop("disabled", true);
+  </script>
+
+  <script>
+      let skillCounter = 0;
+      $(document).on("click", "#addSkill", function (e) {
+          e.preventDefault();
+          skillCounter++;
+          const newRow = jQuery("<div class='skill-repeat'><div class='row'>" +
+              "    <div class='col-md-4'>" +
+              "     <input" +
+              "        hidden type='text'" +
+              "        class='form-control' " +
+              "        name='skills[" + skillCounter + "].id'" +
+              "      />" +
+              "      <input" +
+              "        placeholder='Skill Name'" +
+              "        type='text'" +
+              "        class='form-control'" +
+              "        name='skills[" + skillCounter + "].name'" +
+              "      />" +
+              "    </div>" +
+              "    <div class='col-md-3 px-1'>" +
+              "      <input" +
+              "        placeholder='Years of Experience'" +
+              "        type='text'" +
+              "        class='form-control'" +
+              "        name='skills[" + skillCounter + "].yearsOfExperience'" +
+              "      />" +
+              "    </div>" +
+              "    <div class='col-md-3'>" +
+              "      <select" +
+              "        class='form-control'" +
+              "        name='skills[" + skillCounter + "].experienceLevel'" +
+              "      >" +
+              "        <option value='' selected>Experience Level</option>" +
+              "        <option value='Beginner'>Beginner</option>" +
+              "        <option value='Intermediate'>Intermediate</option>" +
+              "        <option value='Advance'>Advance</option>" +
+              "      </select>" +
+              "    </div>" +
+              "    <div class='col-md-2 align-content-center justify-content-center'>" +
+              "      <button type='button' class='btn btn-danger btn-sm remove-skill'>X</button>" +
+              "    </div>" +
+              "  </div>" +
+              "</div>");
+          console.log(newRow);
+          $('.parent-skill').append(newRow);
+      });
+
+      // remove button
+      $(document).on("click", ".remove-skill", function () {
+          $(this).closest(".skill-repeat").remove();
+      });
+  </script>
+
+  <script>
+      let languageCounter = 0;
+      $(document).on("click", "#addLanguage", function (e) {
+          e.preventDefault();
+          languageCounter++;
+          const newRow = jQuery("<div class='language-repeat'><div class='row'>" +
+              "    <div class='col-md-5'>" +
+              "     <input" +
+              "        hidden type='text'" +
+              "        class='form-control' " +
+              "        name='languages[" + languageCounter + "].id'" +
+              "      />" +
+              "      <select" +
+              "        class='form-control'" +
+              "        name='languages[" + languageCounter + "].name'" +
+              "      >" +
+              "        <option value='' selected>Language</option>" +
+              "        <option value='Korean'>Korean</option>" +
+              "        <option value='Chinese'>Chinese</option>" +
+              "        <option value='English'>English</option>" +
+              "        <option value='Japanese'>Japanese</option>" +
+              "        <option value='Spanish'>Spanish</option>" +
+              "        <option value='German'>German</option>" +
+              "        <option value='French'>French</option>" +
+              "        <option value='Vietnamese'>Vietnamese</option>" +
+              "      </select>" +
+              "    </div>" +
+              "    <div class='col-md-5'>" +
+              "      <select" +
+              "        required" +
+              "        class='form-control'" +
+              "        name='languages[" + languageCounter + "].experienceLevel'" +
+              "      >" +
+              "        <option value='' selected>Experience Level</option>" +
+              "        <option value='Beginner'>Beginner</option>" +
+              "        <option value='Intermediate'>Intermediate</option>" +
+              "        <option value='Advance'>Advance</option>" +
+              "      </select>" +
+              "    </div>" +
+              "    <div class='col-md-2 align-content-center justify-content-center'>" +
+              "      <button type='button' class='btn btn-danger btn-sm remove-language'>X</button>" +
+              "    </div>" +
+              "  </div>" +
+              "</div>");
+          console.log(newRow);
+          $('.parent-language').append(newRow);
+      });
+
+      //remove button
+      $(document).on("click", ".remove-language", function () {
+          $(this).closest(".language-repeat").remove();
+      });
+  </script>
+
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+          const modalBody = document.getElementById('modal-body');
+
+          //限制履歷檔案大小(PDF ≤ 3MB)
+          const resumeInput = document.getElementById("resumeInput");
+
+          resumeInput?.addEventListener("change", function () {
+              const file = this.files[0];
+
+              if (file && file.size > 3 * 1024 * 1024) { // 3MB
+                  modalBody.textContent = "Please upload a PDF file smaller than 3MB.";
+
+                  errorModal.show();
+
+                  this.value = ""; //清空選擇
+              }
+          });
+
+          //限制大頭貼檔案大小(Image ≤ 1MB)
+          const profileInput = document.getElementById("profileImageInput");
+
+          profileInput?.addEventListener("change", function () {
+              const file = this.files[0];
+
+              if (file && file.size > 1024 * 1024) { // 1MB
+                  modalBody.textContent = "Please upload an image smaller than 1MB (JPEG or PNG).";
+
+                  errorModal.show();
+
+                  this.value = ""; //清空選擇
+              }
+          });
+      });
+  </script>
+</html>

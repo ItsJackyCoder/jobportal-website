@@ -1,7 +1,7 @@
 📑 Personal Portfolio Website
 ===
 
-[Go to Website](https://jackyfang-portfolio.netlify.app/)
+[Go to Website](http://jackycoder.us-east-2.elasticbeanstalk.com/)
 --
 
 Introduce

@@ -96,7 +96,14 @@
         <!-- Search form -->
         <div sec:authorize="hasAuthority('Job Seeker')">
 
-          <label class="text-uppercase color-dull fw-bold">Filter Results</label>
+          <div class="filter-recruiter d-flex">
+            <label class="text-uppercase color-dull font-weight-bold">Filter Results</label>
+            <button class="d-flex justify-content-center align-content-center ms-auto" type="submit"
+                    form="myForm">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+
           <hr/>
           <form id="myForm" th:action="@{/dashboard/}">
 

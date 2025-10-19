@@ -28,13 +28,13 @@ User Interface
 #### Home Page:
 ![](photos/homepage.png)
 
-#### Login:
+#### Login Page:
 ![](photos/login.png)
 
-#### Registraction:
+#### Registraction Page:
 ![](photos/register.png)
 
-#### Guest - Home Page:
+#### Guest View(Home Page):
 ![](photos/guest.png)
 
 #### Jobseeker - Home Page:
@@ -43,10 +43,10 @@ User Interface
 #### Jobseeker - Profile:
 ![](photos/jobseeker-profile.png)
 
-#### Jobseeker - The list of saved jobs:
+#### Jobseeker - Saved Jobs:
 ![](photos/jobseeker-save-jobs.png)
 
-#### Jobseeker - Apply jobs:
+#### Jobseeker - Jobs Page:
 ![](photos/jobseeker-apply.png)
 
 #### Recruiter - Home Page:
@@ -55,15 +55,15 @@ User Interface
 #### Recruiter - Profile:
 ![](photos/recruiter-profile.png)
 
-#### Recruiter - Post New Jobs:
+#### Recruiter - Post a New Job:
 ![](photos/recruiter-post-new-job.png)
 
 #### Recruiter - Job Details:
 ![](photos/recruiter-job-details.png)
 
-#### Recruiter - The list of job applicants:
+#### Recruiter - Applicant List:
 ![](photos/recruiter-job-applicant-list.png)
 
-#### Recruiter - Filter Results:
+#### Recruiter - Filter Applicants:
 ![](photos/recruiter-filter-results.png)
 

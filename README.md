@@ -26,7 +26,44 @@ User Interface
 ---
     
 #### Home Page:
-![](pictures/나에대한이야기.png)
+![](photos/homepage.png)
 
-#### Portfolio Page:
-![](pictures/포트폴리오.png)
+#### Login:
+![](photos/login.png)
+
+#### Registraction:
+![](photos/register.png)
+
+#### Guest - Home Page:
+![](pictures/guest.png)
+
+#### Jobseeker - Home Page:
+![](photos/jobseeker-homepage.png)
+
+#### Jobseeker - Profile:
+![](pictures/jobseeker-profile.png)
+
+#### Jobseeker - The list of saved jobs:
+![](pictures/jobseeker-save-jobs.png)
+
+#### Jobseeker - Apply jobs:
+![](pictures/jobseeker-apply.png)
+
+#### Recruiter - Home Page:
+![](pictures/recruiter-homepage.png)
+
+#### Recruiter - Profile:
+![](pictures/recruiter-profile.png)
+
+#### Recruiter - Post New Jobs:
+![](pictures/recruiter-post-new-job.png)
+
+#### Recruiter - Job Details:
+![](pictures/recruiter-job-details.png)
+
+#### Recruiter - The list of job applicants:
+![](pictures/recruiter-job-applicant-list.png)
+
+#### Recruiter - Filter Results:
+![](pictures/recruiter-filter-results.png)
+

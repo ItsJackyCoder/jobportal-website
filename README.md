@@ -15,7 +15,7 @@ Visitors who aren’t logged in can still explore job listings, but they won’t
 Technology Stack
 ---
 * Frontend: `JavaScript` , `HTML` , `CSS` , `Thymeleaf` , `Summernote`
-* Frameworks: `Bootstrap` , `Spring Boot3` , `SpringMVC` , `Spring Data JPA` , `Spring Security`
+* Frameworks: `Bootstrap` , `Spring Boot3` , `Spring MVC` , `Spring Data JPA` , `Spring Security`
 * Backend: `Java`
 * Cloud&Deployment: `AWS S3`, `AWS RDS` , `AWS Elastic Beanstalk` , `AWS Systems Manager Parameter Store`
 * Database: `MySQL` , `Hibernate ORM`

@@ -8,9 +8,9 @@
         <version>3.5.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.luv2code</groupId>
-    <artifactId>jobportal</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <groupId>com.jackycoder</groupId>
+    <artifactId>jobportal-website</artifactId>
+    <version>1.0.0</version>
     <name>jobportal</name>
     <description>Job portal project</description>
     <url/>

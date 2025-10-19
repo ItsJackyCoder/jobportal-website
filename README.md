@@ -19,7 +19,7 @@ Technology Stack
 * Backend: `Java`
 * Cloud&Deployment: `AWS S3` , `AWS RDS` , `AWS Elastic Beanstalk` , `AWS Systems Manager Parameter Store`
 * Database: `MySQL` , `Hibernate ORM`
-* Tooling: `Maven`, `Git/GitHub` , `IntelliJ IDEA`
+* Tooling: `Maven` , `Git/GitHub` , `IntelliJ IDEA`
 
 
 User Interface

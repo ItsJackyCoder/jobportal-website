@@ -1,7 +1,7 @@
 👔 求職平台網站
 ===
 
-[Go to Website](http://jackycoder.us-east-2.elasticbeanstalk.com/)
+[前往網站](http://jackycoder.us-east-2.elasticbeanstalk.com/)
 --
 
 介紹

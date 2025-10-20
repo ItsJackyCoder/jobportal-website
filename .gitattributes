@@ -1,2 +1,10 @@
 /mvnw text eol=lf
 *.cmd text eol=crlf
+
+#我:主語言強制指定
+*.java linguist-language=Java
+*.html linguist-language=HTML
+*.css linguist-language=CSS
+
+#我:忽略特定目錄-->為了讓github可以正確統計是哪個語言
+/src/main/resources/static/summernote/** linguist-vendored

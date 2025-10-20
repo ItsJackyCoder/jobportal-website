@@ -35,47 +35,46 @@
     이매일:jobseeker3@gmail.com
     비밀번호:12345678
     
-    Note:
-    You can register a new account to try it out, 
-    or log in directly using the provided account and password.
+    참고:
+    새 계정을 등록해 직접 사용해 보시거나, 위에 제공된 계정과 비밀번호로 바로 로그인할 수 있습니다.
     
-#### Home Page:
+#### 홈 페이지:
 ![](photos/homepage.png)
 
-#### Login Page:
+#### 로그인 페이지:
 ![](photos/login.png)
 
-#### Registraction Page:
+#### 회원가입 페이지:
 ![](photos/register.png)
 
-#### Guest View(Home Page):
+#### 게이트 역활 사용 가능한 기능(홈 화면):
 ![](photos/guest.png)
 
-#### Jobseeker - Home Page:
+#### 구직자 - 홈 화면:
 ![](photos/jobseeker-homepage.png)
 
-#### Jobseeker - Profile:
+#### 구직자 - 프로필:
 ![](photos/jobseeker-profile.png)
 
-#### Jobseeker - Saved Jobs:
+#### 구직자 - 저장한 공고:
 ![](photos/jobseeker-save-jobs.png)
 
-#### Jobseeker - Jobs Page:
+### 구직자 - 채용 공고:
 ![](photos/jobseeker-apply.png)
 
-#### Recruiter - Home Page:
+#### 채용담당자 - 홈 화면:
 ![](photos/recruiter-homepage.png)
 
-#### Recruiter - Profile:
+#### 채용담당자 - 프로필:
 ![](photos/recruiter-profile.png)
 
-#### Recruiter - Post a New Job:
+#### 채용담당자 - 새 공고 등록:
 ![](photos/recruiter-post-new-job.png)
 
-#### Recruiter - Job Details:
+#### 채용담당자 - 공고 상세:
 ![](photos/recruiter-job-details.png)
 
-#### Recruiter - Applicant List:
+#### 채용담당자 - 지원자 목록:
 ![](photos/recruiter-job-applicant-list.png)
 
 #### Recruiter - Filter Applicants:

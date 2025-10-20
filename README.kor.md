@@ -77,5 +77,5 @@
 #### 채용담당자 - 지원자 목록:
 ![](photos/recruiter-job-applicant-list.png)
 
-#### Recruiter - 지원자 거름 결과:
+#### 채용담당자 - 지원자 거름 결과:
 ![](photos/recruiter-filter-results.png)

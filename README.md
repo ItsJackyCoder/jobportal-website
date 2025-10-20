@@ -24,6 +24,21 @@ Technology Stack
 
 User Interface
 ---
+    Account:recruiter1@gmail.com
+    Password:12345678 
+
+    Account:jobseeker1@gmail.com
+    Password:12345678
+
+    Account:jobseeker2@gmail.com
+    Password:12345678
+
+    Account:jobseeker3@gmail.com
+    Password:12345678
+    
+    Note:
+    You can register a new account to try it out, 
+    or log in directly using the provided account and password.
     
 #### Home Page:
 ![](photos/homepage.png)

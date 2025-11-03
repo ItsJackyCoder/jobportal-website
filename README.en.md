@@ -39,6 +39,8 @@ User Interface
     Note:
     You can register a new account to try it out, 
     or log in directly using the provided account and password.
+
+    ⚠️It is recommended to use a web browser for the best experience.
     
 #### Home Page:
 ![](photos/homepage.png)

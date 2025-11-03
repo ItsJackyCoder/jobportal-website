@@ -40,7 +40,7 @@ User Interface
     You can register a new account to try it out, 
     or log in directly using the provided account and password.
 
-    ⚠️It is recommended to use a web browser for the best experience.
+    ⚠️For the best experience, please use a desktop browser.
     
 #### Home Page:
 ![](photos/homepage.png)

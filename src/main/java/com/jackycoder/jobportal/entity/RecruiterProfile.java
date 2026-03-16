@@ -126,7 +126,7 @@ public class RecruiterProfile {
     public String getPhotosImagePath(){
         if(profilePhoto == null) return null;
 
-        String bucket = "jackycoder-jobportal-uploads";
+        String bucket = "storage-jobportal";
         String region = "us-east-2";
 
         return "https://" + bucket + ".s3." + region + ".amazonaws.com/photos/recruiter/"

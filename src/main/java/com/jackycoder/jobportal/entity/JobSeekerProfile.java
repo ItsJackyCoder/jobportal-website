@@ -175,7 +175,7 @@ public class JobSeekerProfile {
     public String getPhotosImagePath(){
         if(profilePhoto == null || userAccountId == null) return null;
 
-        String bucket = "jackycoder-jobportal-uploads";
+        String bucket = "storage-jobportal";
         String region = "us-east-2";
 
         return "https://" + bucket + ".s3." + region + ".amazonaws.com/photos/candidate/"
@@ -187,7 +187,7 @@ public class JobSeekerProfile {
     public String getResumePath(){
         if(resume == null || userAccountId == null) return null;
 
-        String bucket = "jackycoder-jobportal-uploads";
+        String bucket = "storage-jobportal";
         String region = "us-east-2";
 
         return "https://" + bucket + ".s3." + region + ".amazonaws.com/photos/candidate/"

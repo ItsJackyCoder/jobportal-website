@@ -1,7 +1,7 @@
 👔 구직·채용 웹사이트
 ===
 
-[웹사이트 가기](http://jackycoder.us-east-2.elasticbeanstalk.com/)
+[웹사이트 가기](http://jackycodeworld.us-east-2.elasticbeanstalk.com/)
 --
 
 소개

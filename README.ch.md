@@ -20,26 +20,29 @@
 * 資料庫: `MySQL` , `Hibernate ORM`
 * 工具: `Maven` , `Git/GitHub` , `IntelliJ IDEA`
 
+## 測試帳號
 
+### 雇主帳號
+
+| 帳號 | 密碼 |
+| --- | --- |
+| recruiter1@gmail.com | 12345678  |
+
+### 求職者帳號
+
+| 帳號 | 密碼 |
+| --- | --- |
+| jobseeker1@gmail.com | 12345678 |
+| jobseeker2@gmail.com | 12345678 |
+| jobseeker3@gmail.com | 12345678 |
+
+> 你也可以註冊新帳號試用，或直接使用上述測試帳號登入。
 使用者介面
----
-    帳號:recruiter1@gmail.com
-    密碼:12345678 
 
-    帳號:jobseeker1@gmail.com
-    密碼:12345678
+> 為獲得最佳瀏覽體驗，建議使用電腦版瀏覽器。
 
-    帳號:jobseeker2@gmail.com
-    密碼:12345678
+## 使用者介面
 
-    帳號:jobseeker3@gmail.com
-    密碼:12345678
-    
-    備註:
-    你可以註冊新帳號試用，或直接使用以上提供的帳號與密碼登入。
-
-    ⚠️為獲得最佳瀏覽體驗，建議使用電腦版瀏覽器。
-    
 #### 首頁:
 ![](photos/homepage.png)
 

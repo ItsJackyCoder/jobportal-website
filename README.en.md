@@ -29,7 +29,7 @@ Technology Stack
 | --- | --- |
 | recruiter1@gmail.com | 12345678  |
 
-### 구직자 계정
+### Job Seeker Accounts
 
 | Email | Password |
 | --- | --- |

@@ -20,25 +20,27 @@
 * 데이터베이스: `MySQL` , `Hibernate ORM`
 * 도구: `Maven` , `Git/GitHub` , `IntelliJ IDEA`
 
+## 테스트 계정
 
-사용자 인터페이스
----
-    이매일:recruiter1@gmail.com
-    비밀번호:12345678 
+### 채용 담당자 계정
 
-    이매일:jobseeker1@gmail.com
-    비밀번호:12345678
+| 이메일 | 비밀번호 |
+| --- | --- |
+| recruiter1@gmail.com | 12345678  |
 
-    이매일:jobseeker2@gmail.com
-    비밀번호:12345678
+### 구직자 계정
 
-    이매일:jobseeker3@gmail.com
-    비밀번호:12345678
-    
-    참고:
-    새 계정을 등록해 직접 사용해 보시거나, 위에 제공된 계정과 비밀번호로 바로 로그인할 수 있습니다.
+| 이메일 | 비밀번호 |
+| --- | --- |
+| jobseeker1@gmail.com | 12345678 |
+| jobseeker2@gmail.com | 12345678 |
+| jobseeker3@gmail.com | 12345678 |
 
-    ⚠️최상의 이용 환경을 위해 PC 브라우저 사용을 권장합니다.
+> 새 계정을 직접 등록하여 이용하거나, 위의 테스트 계정으로 로그인해 볼 수 있습니다.
+
+> 더 원활한 이용을 위해 PC 환경의 브라우저 사용을 권장합니다.
+
+## 사용자 인터페이스
     
 #### 홈 페이지:
 ![](photos/homepage.png)

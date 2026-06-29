@@ -21,26 +21,27 @@ Technology Stack
 * Database: `MySQL` , `Hibernate ORM`
 * Tooling: `Maven` , `Git/GitHub` , `IntelliJ IDEA`
 
+## Test Accounts
 
-User Interface
----
-    Account:recruiter1@gmail.com
-    Password:12345678 
+### Recruiter Account
 
-    Account:jobseeker1@gmail.com
-    Password:12345678
+| Email | Password |
+| --- | --- |
+| recruiter1@gmail.com | 12345678  |
 
-    Account:jobseeker2@gmail.com
-    Password:12345678
+### 구직자 계정
 
-    Account:jobseeker3@gmail.com
-    Password:12345678
-    
-    Note:
-    You can register a new account to try it out, 
-    or log in directly using the provided account and password.
+| Email | Password |
+| --- | --- |
+| jobseeker1@gmail.com | 12345678 |
+| jobseeker2@gmail.com | 12345678 |
+| jobseeker3@gmail.com | 12345678 |
 
-    ⚠️For the best experience, please use a desktop browser.
+> You can register a new account to explore the platform or log in using one of the test accounts above.
+
+> For the best experience, using a desktop browser is recommended.
+
+## User Interface
     
 #### Home Page:
 ![](photos/homepage.png)

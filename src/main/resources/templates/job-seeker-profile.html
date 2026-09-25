@@ -295,7 +295,7 @@
 
                     <!-- ?????? -->
                     <div th:if="*{profilePhoto}">
-                      <a th:href="@{*{photosImagePath}}"
+                      <a id="profilePhotoNameLink"
                          target="_blank"
                          class="text-decoration-none">
                         <span id="profilePhotoName" th:text="*{profilePhoto}"></span>
@@ -322,7 +322,8 @@
 
                     <!-- ?????? -->
                     <div th:if="*{resume}">
-                      <a th:href="@{*{resumePath}}"
+                      <a id="resumeNameLink"
+                         th:href="@{*{resumePath}}"
                          target="_blank"
                          class="text-decoration-none">
                         <span id="resumeName" sec:authorize="hasAuthority('Job Seeker')" th:text="*{resume}"></span>
@@ -389,6 +390,7 @@
       if (profileInput) {
           profileInput.addEventListener("change", function (event) {
               const file = event.target.files[0];
+              const imageUrl = URL.createObjectURL(file);
 
               if (file) {
                   const reader = new FileReader();
@@ -398,8 +400,10 @@
                   reader.readAsDataURL(file);
 
                   const profileName = document.getElementById("profilePhotoName");
+                  const profilePhotoNameLink = document.getElementById("profilePhotoNameLink")
 
                   if (profileName) profileName.innerText = file.name;
+                  if(profilePhotoNameLink) profilePhotoNameLink.href = imageUrl;
               }
           })
       }
@@ -409,10 +413,14 @@
       if (resumeInput) {
           resumeInput.addEventListener("change", function (event) {
               const file = event.target.files[0];
+              const resumeUrl = URL.createObjectURL(file);
+
               if (file) {
                   const resumeName = document.getElementById("resumeName");
+                  const resumeNameLink = document.getElementById("resumeNameLink")
 
                   if (resumeName) resumeName.innerText = file.name;
+                  if (resumeNameLink) resumeNameLink.href = resumeUrl;
               }
           })
       }

@@ -54,6 +54,12 @@ public class S3StorageService {
                 ? multipartFile.getContentType()
                 : detectContentType(filename);
 
+        //debug
+        System.out.println("===== S3 PDF UPLOAD =====");
+        System.out.println("bucket = " + bucket);
+        System.out.println("key = " + key);
+        System.out.println("size = " + multipartFile.getSize());
+
         PutObjectRequest.Builder req = PutObjectRequest.builder()
                 .bucket(bucket)
                 .key(key)
@@ -77,8 +83,14 @@ public class S3StorageService {
             throw new IOException("Uploaded file is not a supported image.");
         }
 
+        System.out.println("===== START IMAGE CONVERT =====");
+
         // 取得 WebP writer
         Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName("webp");
+
+        System.out.println(
+                "WebP writer exists = " + writers.hasNext()
+        );
 
         if (!writers.hasNext()) {
             throw new IOException("No WebP ImageWriter found. Is webp-imageio on the classpath?");

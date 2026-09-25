@@ -85,7 +85,8 @@
                            accept="image/png, image/jpeg"/>
 
                     <div th:if="*{profilePhoto}">
-                      <a th:href="@{|/recruiter-profile/downloadResume?fileName=${profile.profilePhoto}&userID=${profile.userAccountId}|}"
+                      <a id="profilePhotoNameLink"
+                         th:href="@{${profile.photosImagePath}}"
                          target="_blank"
                          class="text-decoration-none">
                         <span id="profilePhotoName" th:text="*{profilePhoto}"></span>
@@ -137,14 +138,19 @@
 
               if (file) {
                   const reader = new FileReader();
+                  const imageUrl = URL.createObjectURL(file);
+
                   reader.onload = function (e) {
                       document.getElementById("profilePreview").src = e.target.result;
                   };
+
                   reader.readAsDataURL(file);
 
                   const profileName =document.getElementById("profilePhotoName");
+                  const profilePhotoNameLink = document.getElementById("profilePhotoNameLink")
 
                   if(profileName) profileName.innerText = file.name;
+                  if(profilePhotoNameLink) profilePhotoNameLink.href = imageUrl;
               }
           })
       }

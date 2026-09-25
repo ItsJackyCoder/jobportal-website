@@ -175,8 +175,8 @@ public class JobSeekerProfile {
     public String getPhotosImagePath(){
         if(profilePhoto == null || userAccountId == null) return null;
 
-        String bucket = "storage-jobportal";
-        String region = "us-east-2";
+        String bucket = "jobportal-storage-s3";
+        String region = "us-east-1";
 
         return "https://" + bucket + ".s3." + region + ".amazonaws.com/photos/candidate/"
                 + userAccountId + "/" + profilePhoto;
@@ -187,8 +187,8 @@ public class JobSeekerProfile {
     public String getResumePath(){
         if(resume == null || userAccountId == null) return null;
 
-        String bucket = "storage-jobportal";
-        String region = "us-east-2";
+        String bucket = "jobportal-storage-s3";
+        String region = "us-east-1";
 
         return "https://" + bucket + ".s3." + region + ".amazonaws.com/photos/candidate/"
                 + userAccountId + "/" + resume;
@@ -211,4 +211,3 @@ public class JobSeekerProfile {
                 '}';
     }
 }
-
